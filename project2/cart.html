@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>سلة الطلبات - معمار</title>
+  <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+
+  <div class="cart-container">
+    <h1 class="cart-title">سلة الطلبات</h1>
+
+    <div id="cart-items" class="cart-items">
+      <!-- الطلبات تظهر هنا تلقائيًا -->
+    </div>
+
+    <div class="cart-summary">
+      <span class="total-label">الإجمالي:</span>
+      <span class="total-value" id="total">0 ر.س</span>
+    </div>
+
+    <div class="cart-actions">
+      <button class="add-btn" onclick="addItem()">إضافة طلب جديد</button>
+      <button class="confirm-btn" onclick="confirmOrder()">تأكيد الطلب</button>
+    </div>
+  </div>
+
+  <script src="cart.js"></script>
+</body>
+</html>
