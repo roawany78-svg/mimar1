@@ -1,134 +1,981 @@
-.about-section {
-  background: linear-gradient(135deg, #eaf4f1 0%, #ffffff 100%); /* خلفية متدرجة الالوان*/
-  padding: 80px 0;
-  font-family:  sans-serif;
-  direction: rtl;
+:root { --main-green: #005f46; }
+
+body { 
+  margin: 0; 
+  font-family: "Poppins", sans-serif; 
+  color: #1a1a1a; 
+  background: #fff; 
 }
 
-.about-container {
-  display: flex; /* للسلاسه*/
+.container { 
+  max-width: 1200px; 
+  margin: auto; 
+  padding: 0 40px; 
+}
+
+/* Navbar */
+.navbar { 
+  background: #fff; 
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+  position: sticky; 
+  top: 0; 
+  z-index: 1000; 
+}
+
+.nav-container { 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  padding: 12px 0; 
+}
+
+.logo { 
+  display: flex; 
+  align-items: center; 
+  font-weight: 700; 
+  font-size: 20px; 
+}
+
+.logo img { 
+  width: 30px; 
+  margin-right: 8px; 
+  border-radius: 20%;
+}
+
+.nav-links a { 
+  margin: 0 12px; 
+  color: #1a1a1a; 
+  text-decoration: none; 
+  font-weight: 500; 
+  transition: 0.3s; 
+}
+
+.nav-links a:hover { 
+  color: var(--main-green); 
+}
+
+/* ✅ زر اللغة وتسجيل الدخول بينهم مسافة */
+.nav-actions { 
+  display: flex; 
+  align-items: center; 
+  gap: 20px; 
+}
+
+.lang-toggle { 
+  display: flex; 
+  align-items: center; 
+  gap: 6px; 
+  background: none; 
+  border: none; 
+  cursor: pointer; 
+  font-size: 16px; 
+  font-weight: 600; 
+  color: var(--main-green); 
+}
+
+.lang-toggle i { 
+  font-size: 18px; 
+  color: var(--main-green); 
+}
+
+/* زر السلة (شفافة بالافتراضي، تتحول لخلفية خضراء ونص أبيض عند hover) */
+.btn-cart {
+  font-size: 18px;
+  color: var(--main-green);
+  padding: 10px 10px;
+  border-radius: 30%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s ease;
+  text-decoration: none;
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between; /* توزيع المساحه بشكل متساوي */
-  flex-wrap: wrap;  /* للجمال السماح للعناصر بالانتقال للسطر التالي قي الشاشات الصغيرة*/
-  width: 85%;
-  margin: auto;
-  gap: 40px; /* فراغ ثابت بين الصورة والنص */
+  justify-content: center;
 }
 
-/* النص */
-.about-text {
-  flex: 1;
-  min-width: 320px; /*لمنع تقلص الصندوق اكثر من كذا */
+.btn-cart:hover {
+  background: var(--main-green);
+  color: #fff;
 }
 
-.about-title {
-  font-size: 36px;
-  color: #005f46; /*تمييز لاسم موقعنا */
+/* زر تسجيل الدخول */
+.btn-login { 
+  background: var(--main-green); 
+  color: #fff; 
+  padding: 6px 16px; 
+  border-radius: 20px; 
+  text-decoration: none; 
+  font-weight: 600; 
+  align-items: center;
+  transition: 0.25s ease;
+}
+
+.btn-login:hover {
+  background: #fff;
+  color: var(--main-green);
+  border: 1px solid var(--main-green);
+}
+
+/* Hero */
+.hero { 
+  background: linear-gradient(135deg, #007d5c, var(--main-green)); 
+  color: #fff; 
+  padding: 80px 0; 
+}
+
+.hero-container { 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  flex-wrap: wrap; 
+}
+
+.hero-text { 
+  flex: 1; 
+  min-width: 300px; 
+}
+
+.hero-text h1 { 
+  font-size: 50px; 
+  font-weight: 700; 
+  margin-bottom: 20px; 
+}
+
+.white-text { color: #fff; }
+.faded-text { color: rgba(255,255,255,0.6); }
+
+.hero-buttons { 
+  display: flex; 
+  gap: 15px; 
+  margin-top: 20px; 
+}
+
+.hero-image { 
+  flex: 1; 
+  text-align: right; 
+}
+
+.hero-image img { 
+  width: 500px; 
+  max-width: 100%; 
+  border-radius: 12px; 
+  object-fit: cover; 
+}
+
+/* الأزرار */
+.btn-primary, .btn-secondary { 
+  border-radius: 8px; 
+  padding: 12px 24px; 
+  font-weight: 600; 
+  cursor: pointer; 
+  border: 2px solid transparent; 
+  text-decoration: none; 
+  display: inline-block; 
+  transition: 0.3s; 
+}
+
+.btn-primary { 
+  background: var(--main-green); 
+  color: #fff; 
+  border: 2px solid var(--main-green); 
+}
+
+.btn-primary:hover { 
+  background: #fff; 
+  color: var(--main-green); 
+}
+
+.btn-primary:active { 
+  background: #00382b; 
+  border-color: #00382b; 
+  color: #fff; 
+}
+
+.btn-secondary { 
+  background: #fff; 
+  color: var(--main-green); 
+  border: 2px solid var(--main-green); 
+}
+
+.btn-secondary:hover { 
+  background: var(--main-green); 
+  color: #fff; 
+}
+
+.btn-secondary:active { 
+  background: #009f7a; 
+  border-color: #009f7a; 
+  color: #fff; 
+}
+
+.center-btn { 
+  text-align: center; 
+  margin-top: 30px; 
+}
+
+/* Stats */
+.stats { 
+  background: #f3f3f3; 
+  padding: 60px 0; 
+}
+
+.stats-container { 
+  display: flex; 
+  justify-content: space-around; 
+  text-align: center; 
+  flex-wrap: wrap; 
+  gap: 20px; 
+}
+
+.stat h2 { 
+  font-size: 28px; 
+  font-weight: 700; 
+  margin: 10px 0; 
+}
+
+.stat p { 
+  font-size: 14px; 
+  color: #555; 
+}
+
+.icon-circle { 
+  width: 60px; 
+  height: 60px; 
+  border-radius: 50%; 
+  background: var(--main-green); 
+  color: #fff; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  font-size: 24px; 
+  margin: auto; 
+}
+
+.icon-circle.blue { background: #1565c0; }
+.icon-circle.green { background: #00c853; }
+
+/* Cards */
+.cards { 
+  display: flex; 
+  gap: 20px; 
+  flex-wrap: wrap; 
+  margin-top: 20px; 
+}
+
+.card { 
+  border-radius: 12px; 
+  padding: 20px; 
+  background: #fff; 
+  flex: 1; 
+  transition: 0.3s; 
+  border: 2px solid transparent; 
+}
+
+.card:hover { 
+  border-color: var(--main-green); 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+}
+
+.card img { 
+  width: 100%; 
+  border-radius: 8px; 
+  margin-bottom: 10px; 
+}
+
+.stars i { color: gold; }
+
+/* ---------- CTA + تكبير العنوان ووسط السكشن ---------- */
+.cta { 
+  background: #f3f3f3; 
+  padding: 80px 20px; 
+  margin-top: 60px; 
+  text-align: center; 
+  border-radius: 16px; 
+  display: flex; /* محتوى السكشن في وسطه */ 
+  justify-content: center; 
+  flex-wrap: wrap; 
+  gap: 20px; 
+}
+
+.cta h2 { 
+  color: var(--main-green); 
+  font-size: 36px; /* تم تكبير العنوان */ 
+  text-align: center; /* في وسط السكشن */ 
+  margin-bottom: 20px; 
+}
+
+.cta p { 
+  color: #444; 
+  font-size: 20px; 
+  margin-bottom: 30px; 
+}
+
+/* Footer */
+.footer { 
+  background: #f8f8f8; 
+  padding: 40px 0; 
+}
+
+.footer-container { 
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: space-between; 
+  gap: 30px; 
+}
+
+.footer-container h4 { 
+  margin-bottom: 10px; 
+  color: var(--main-green); 
+}
+
+.footer-container a { 
+  text-decoration: none; 
+  color: #333; 
+  margin-bottom: 6px; 
+  display: block; 
+}
+
+.footer-container a:hover { 
+  color: var(--main-green); 
+}
+
+.footer-bottom { 
+  text-align: center; 
+  margin-top: 20px; 
+  font-size: 14px; 
+  color: #666; 
+}
+
+/* Chat */
+.chat-icon { 
+  text-decoration: none; 
+  position: fixed; 
+  bottom: 20px; 
+  right: 20px; 
+  background: var(--main-green); 
+  color: #fff; 
+  padding: 12px; 
+  border-radius: 50%; 
+  font-size: 20px; 
+  cursor: pointer; 
+}
+
+.hero-image img { 
+  width: 540px; 
+  max-width: 100%; 
+  border-radius: 12px; 
+  object-fit: cover; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.hero-image img:hover { 
+  transform: translateY(-10px); 
+  box-shadow: 0 15px 25px rgba(0,0,0,0.2); 
+}
+
+/* AI Contractors specific styling */
+.ai-contractors h2 {
+  font-size: 36px;       
+  text-align: center;    
+  margin-bottom: 20px; 
+  color: #252525;  
+}
+.ai-contractors p {
+  text-align: center; 
+}
+
+
+.ai-contractors .card img { 
+  width: 100px; 
+  height: 100px; 
+  border-radius: 50%; 
+  object-fit: cover; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.ai-contractors .card:hover { 
+  transform: translateY(-8px); 
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15); 
+}
+
+/* Featured section */
+.featured h2 {
+  font-size: 36px; 
+  text-align: center; 
+  margin-bottom: 20px;
+  color: #252525;
+}
+
+.featured p {
+  text-align: center; /* وضع الوصف أسفل العنوان في الوسط */
+}
+
+
+.featured .card { 
+  width: 250px; /* متوسط الحجم */ 
+  border-radius: 12px; 
+  padding: 15px; 
+  background: #fff; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+  border: 2px solid transparent; 
+}
+
+.featured .card:hover { 
+  transform: translateY(-8px); 
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15); 
+  border-color: var(--main-green); 
+}
+
+.featured .card img { 
+  width: 100%; 
+  height: 150px; 
+  border-radius: 12px; 
+  object-fit: cover; 
+}
+
+/* كروت المقاولين */
+.ai-contractors .card { 
+  border: 2px solid var(--main-green); /* إطار أخضر */ 
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; 
+}
+
+/* كروت المشاريع */
+.featured .card { 
+  border: 2px solid var(--main-green); /* إطار أخضر */ 
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; 
+}
+
+/* Footer tweaks (بعض تحسينات صغيرة للحفاظ على التناسق) */
+.footer-container { 
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: space-between; 
+  gap: 30px; 
+}
+
+.footer-container a { 
+  display: block; 
+  color: #555; 
+  margin: 6px 0; 
+  text-decoration: none; 
+  font-size: 14px; 
+}
+
+.footer-container a:hover { 
+  color: var(--main-green); 
+}
+
+.footer-about { flex: 1; max-width: 250px; }
+.footer-bottom { 
+  text-align: center; 
+  font-size: 12px; 
+  color: #777; 
+  margin-top: 20px; 
+  padding-top: 10px; 
+  border-top: 1px solid #ddd; 
+}
+
+.social i { 
+  font-size: 18px; 
+  margin-right: 10px; 
+  color: #555; 
+  cursor: pointer; 
+}
+
+.social i:hover { 
+  color: var(--main-green); 
+}
+
+/* Chat */
+.chat-icon { 
+  position: fixed; 
+  bottom: 20px; 
+  right: 20px; 
+  background: var(--main-green); 
+  color: #fff; 
+  width: 30px; 
+  height: 30px; 
+  border-radius: 50%; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  font-size: 24px; 
+  cursor: pointer; 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-container, .stats-container, .footer-container { 
+    flex-direction: column; 
+    text-align: center; 
+  }
+  .hero-image { text-align: center; margin-top: 20px; }
+  .nav-links { display: none; }
+}
+
+/* Hero Projects */
+.projects-hero {
+  background: #f3f3f3;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.projects-hero h1 {
+  font-size: 40px;
+  color: var(--main-green);
   margin-bottom: 15px;
+}
+
+.projects-hero p {
+  font-size: 18px;
+  color: #444;
+  max-width: 600px;
+  margin: 0 auto 30px auto;
+}
+
+.projects-filters {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.projects-filters input {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  min-width: 250px;
+}
+
+.projects-filters select {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  min-width: 180px;
+}
+
+/* Projects Grid */
+.projects-grid {
+  padding: 60px 20px;
+  background: #fff;
+}
+
+.projects-grid .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.project-card {
+  width: 100%;
+  background: #fff;
+  border: 2px solid #eee;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  border-color: var(--main-green);
+}
+
+.project-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.project-content {
+  padding: 20px;
+}
+
+.project-content h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.project-content .by {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.project-content .desc {
+  font-size: 15px;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.project-content .meta {
+  font-size: 14px;
+  color: #555;
+  margin: 5px 0;
+}
+
+.project-content .btn-primary {
+  margin-top: 10px;
+  display: inline-block;
+}
+
+/* البحث */
+.search-box {
+  position: relative;
+  display: inline-block;
+  margin-right: 15px;
+}
+.search-box input {
+  padding: 8px 30px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.search-box i {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+}
+
+/* Dropdown الفلتر */
+.filter-dropdown {
+  position: relative;
+  display: inline-block;
+}
+.filter-dropdown button {
+  padding: 8px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #fff;
+  cursor: pointer;
+}
+.filter-dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #fff;
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  left: 0;
+  display: none;
+  z-index: 10;
+}
+.filter-dropdown ul li {
+  padding: 8px 15px;
+  cursor: pointer;
+}
+.filter-dropdown ul li:hover {
+  background: #f1f1f1;
+}
+.filter-dropdown ul.show {
+  display: block;
+}
+
+/* الشارات */
+.project-card {
+  position: relative;
+}
+.project-card::before {
+  content: attr(data-status);
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 15px;
+  color: #fff;
+}
+.project-card.completed{
+  position: relative;
+}
+.project-card.completed::before {
+  content: "Completed";
+  background: green;
+}
+.project-card.ongoing{
   position: relative;
 }
 
-.about-title::after { 
- content: ""; /*عشان يعطيني خط قصير تحت كلمة من نحن */
-    width: 60px;
-  height: 4px;
-  background-color: #005f46;
-  position: absolute;
-  bottom: -10px;
-  right: 0;
-  border-radius: 2px; /* يخلي الخط اللي تحت كلمة من نحن بحواف مقوسه*/
+.project-card.ongoing::before {
+  content: "In Progress";
+  background: dodgerblue;
 }
 
-.about-description {
-  font-size: 18px;
-  color: #333;
-  line-height:1.9; /*تباعد الاسطر لتحسين القراءة*/
-  margin: 30px 0;/*مسافه فوق وتحت */
-}
 
-.website-name {
-  font-weight: bold;
-  color: #005f46;
-  /*ابراز معمار باللون وخط عريض */
-}
-
-/* المربعات الصغيرة للرؤية والرسالة */
-.about-details {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  /* ترتيب المربعات جنب بعض مع مسافه بينهم و ينزلون سطر عند الحاجة */
-}
-
-.detail-box {
-  background-color: #ffffff; /* باكقراوند ابيض للمربعات */
-  border: 1px solid #dfeeea; /* حدود فاتحه عشان ابرز الحواف حقت المربعات*/
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05); /* ظل */
-  padding: 25px; /* مساحه داخل المربع*/
-  border-radius: 12px; /* حواف مقوسه للمربع */
-  flex: 1; /* مرونة المربعات */
-  transition: all 0.3s ease;  /*انتقال ناعم عند تمرير الماوس */
-}
-
-.detail-box:hover {
-  transform: translateY(-5px); /* لما نمرر الماوس يرتفع المربع شوي (احساس تفاعلي )*/
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* احساس تفاعلي بعد يعطيني ظل حول المربع عند تمرير الماوس */
-}
-
-.detail-title {
-  color: #005f46;
-  font-size: 22px;
-  margin-bottom: 10px;
-  /* تنسيق لعناوين المربعات */
-}
-
-.detail-text {
-  color: #444;
-  font-size: 16px;
-  line-height: 1.8;
-  /*تنسيق لنص المربعات */
-}
-
-/* الصورة */
-.about-image {
-  flex: 1; /* للسلاسه*/
-  min-width: 320px; /* احدد اقل عرص ممكن عشان ما تصغر الصورة اكثر وتعدم التصميم*/
-  text-align: center; /* توسيط الصورة في المربع */
-}
-
-.about-image img {
-  width: 90%; /* احدد عرض الصوره ل %90 عشان يبقى فيه فراغ بسيط */
- border-radius: 15px; /* حواف مقوسه */
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1); /* ظل عند تمرير الماوس*/
-  transition: transform 0.4s ease; /* حركة ناعمه اذا مررنا الماوس */
-}
-
-.about-image img:hover {
-  transform: scale(1.03);
-  /* اذا مررت الماوس تكبر الصورة شوي*/
-}
-
-/* استجابة للشاشات الصغيرة */
-@media (max-width: 900px) { /* اذا كان عرض الشاشه 900 بكسل او اقل يصير التالي */
-  .about-container { /* النص والصورة فوق بعض بدال صف افقي */
-    flex-direction: column-reverse; /* يخلي الصورة تحت والنص فوقها*/
-    text-align: center; /* النص بالوسط بدال اليمين */
-  }
-
-  .about-title::after {
-    right: 50%;
-    transform: translateX(50%);
-/* الخط تحت من نحن يصير بالوسط بدال اليمين*/
-  }
-
-  .about-details {
+/* Responsive */
+@media (max-width: 768px) {
+  .projects-filters {
     flex-direction: column;
-    /* نخلي مربعات رؤيتنا و رسالتنا تحت بعض بدال جنب بعض */
-  }
-
-  .about-image img {
-    width: 100%;
-/* اخلي الصورة تاخذ عرض حدودها بالكامل في الجوال */
-
+    align-items: center;
   }
 }
+.pro-btn {
+  background: #fff;             
+  color: #005f46;                
+  border: 1px solid #005f46;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s;
+  position: absolute;
+  bottom: 20px;
+  right: 10px;
+}
+
+.pro-btn:hover {
+  background: #005f46;          
+  color: #fff;                   
+  border: 1px solid #005f46;     
+}
+
+
+
+
+/* ---------------- Project Details Page ---------------- */
+
+/* Back Section */
+.back-section {
+  background: #eee;
+  padding: 12px 40px;
+}
+.back-link {
+  color: #005f46;
+  font-size: 15px;
+  text-decoration: none;
+  font-weight: 500;
+}
+.back-link i { margin-right: 6px; }
+
+/* Project Overview */
+.project-overview {
+  display: flex;
+  gap: 40px;
+  padding: 40px;
+  background: #fff;
+}
+.project-left { flex: 1; }
+.project-right { flex: 1.2; }
+
+.main-img-wrapper { position: relative; }
+.main-img {
+  width: 100%;
+  border-radius: 10px;
+}
+.status-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+}
+.status-badge.completed { background: #28a745; }
+.status-badge.inprogress { background: #ffc107; color: #333; }
+
+.thumbs {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+.thumbs img {
+  width: 30%;
+  border-radius: 6px;
+}
+
+.project-right h1 {
+  margin-top: 0;
+  font-size: 28px;
+}
+.project-desc {
+  font-size: 15px;
+  margin: 15px 0;
+  line-height: 1.6;
+}
+
+/* Rating */
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.rating .star {
+  color: #f1c40f;
+  font-size: 18px;
+}
+.rate-val { font-weight: 600; }
+.reviews { color: #555; font-size: 14px; }
+
+/* Meta */
+.project-meta {
+  display: flex;
+  gap: 30px;
+  margin: 15px 0;
+  color: #444;
+}
+.project-meta i { color: #28a745; margin-right: 6px; }
+
+/* Contractor */
+.contractor-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 12px;
+  margin: 18px 0;
+}
+.contractor-card img {
+  width: 50px; height: 50px;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+.contractor-info h4 { margin: 0; font-size: 16px; }
+.contractor-info p { margin: 0; font-size: 13px; color: #777; }
+.profile-btn {
+  margin-left: auto;
+  background: #fff;
+  border: 1px solid #005f46;
+  color: #005f46;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.profile-btn:hover {
+  background: #005f46;          
+  color: #fff;                   
+  border: 1px solid #005f46;     
+}
+
+
+/* Contract */
+.contract-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 12px;
+}
+.contract-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.contract-info i {
+  font-size: 22px;
+  color: #005f46;
+}
+.contract-info h4 {
+  margin: 0; font-size: 16px;
+}
+.contract-info p {
+  margin: 0; font-size: 13px; color: #555;
+}
+.download-btn {
+  background: #fff;             
+  color: #005f46;                
+  border: 1px solid #005f46;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.download-btn:hover {
+  background: #005f46;          
+  color: #fff;                   
+  border: 1px solid #005f46;     
+}
+
+/* Timeline + Specifications */
+.details-section {
+  display: flex;
+  gap: 40px; /* نفس المسافة اللي في الصورة */
+  background: #f9f9f9; /* الخلفية الرمادية الفاتحة */
+  padding: 40px 60px; /* مسافة داخلية حول البوكسات */
+  font-family: Arial, sans-serif; /* نفس الخط */
+}
+
+.timeline-card, .specs-card {
+  flex: 1;
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* ظل خفيف مثل اللي ظاهر */
+}
+
+.timeline-card h3, .specs-card h3 {
+  margin-top: 0;
+  margin-bottom: 25px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.timeline-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 250px;
+}
+.timeline-card p {
+  margin: 16px 0;
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between; /* خلي النصوص يمين ويسار مثل الصورة */
+}
+
+.timeline-card p span {
+  font-weight: 500;
+  color: #444;
+}
+
+.timeline-card .price {
+  color: #005f46;
+  font-weight: bold;
+}
+
+.specs-card ul {
+  padding-left: 20px;
+  margin: 0;
+  list-style: disc;
+}
+
+.specs-card li {
+  margin-bottom: 12px;
+  font-size: 15px;
+  color: #333;
+}
+
+.specs-card li::marker {
+  color: #005f46; /* لون العلامة أخضر */
+}
+
+
+
+
+
+/* ---------------- AI CHAT Page ---------------- */
+
+
+
+
