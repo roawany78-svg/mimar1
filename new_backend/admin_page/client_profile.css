@@ -1,0 +1,539 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Sidebar Styles - Updated for left position */
+.sidebar {
+    width: 300px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px 20px;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    left: 0;
+    top: 0;
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid white;
+    margin: 0 auto 15px;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: #666;
+}
+
+.profile-name {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.profile-role {
+    background: rgba(255,255,255,0.2);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.profile-email {
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 5px;
+}
+
+.profile-location, .member-since {
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.sidebar-nav {
+    margin-top: 30px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    margin: 5px 0;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.nav-item:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateX(5px);
+}
+
+.nav-item i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+/* Main Content Styles - Updated for left sidebar */
+.main-content {
+    flex: 1;
+    margin-left: 300px;
+    padding: 30px;
+}
+
+.welcome-section {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.welcome-section h1 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.welcome-section p {
+    color: #7f8c8d;
+}
+
+.section {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f1f3f4;
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.view-all {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.view-all:hover {
+    text-decoration: underline;
+}
+
+/* Orders Styles */
+.orders-grid {
+    display: grid;
+    gap: 15px;
+}
+
+.order-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.order-card:hover {
+    border-color: #667eea;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+}
+
+.order-info {
+    flex: 1;
+}
+
+.order-title {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.order-contractor {
+    color: #6c757d;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.order-date {
+    color: #6c757d;
+    font-size: 12px;
+}
+
+.order-meta {
+    text-align: right;
+}
+
+.order-status {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.status-in-progress {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-completed {
+    background: #d1edff;
+    color: #0c5460;
+}
+
+.status-pending {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-open {
+    background: #e7f3ff;
+    color: #0d6efd;
+}
+
+.status-cancelled {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.order-id {
+    color: #6c757d;
+    font-size: 12px;
+}
+
+/* Contractors Styles */
+.contractors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.contractor-card {
+    padding: 20px;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.contractor-card:hover {
+    border-color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+}
+
+.contractor-name {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.contractor-specialization {
+    color: #6c757d;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.contractor-rating {
+    color: #ffc107;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.view-profile-btn {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.view-profile-btn:hover {
+    background: #5a6fd8;
+}
+
+/* Quick Actions Styles */
+.actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.action-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px 20px;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.action-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+}
+
+.action-icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.action-title {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #6c757d;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.btn {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: #5a6fd8;
+}
+
+.stars {
+    display: flex;
+    gap: 5px;
+    margin: 10px 0;
+}
+
+.star {
+    font-size: 24px;
+    color: #ddd;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.star:hover,
+.star.active {
+    color: #ffc107;
+}
+
+/* Success Messages */
+.alert {
+    padding: 12px 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.alert-success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-danger {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* File input styling */
+.form-group input[type="file"] {
+    padding: 8px;
+}
+
+.form-group small {
+    color: #6c757d;
+    font-size: 12px;
+    display: block;
+    margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+    }
+    
+    .main-content {
+        margin-left: 0;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+
+/* Add Order Modal with Scrollbar */
+#addOrderModal .modal-content {
+    max-height: 85vh; /* 85% of viewport height */
+    overflow-y: auto; /* Enable vertical scrolling */
+    margin: 30px auto; /* Reduced margin for better positioning */
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+}
+
+/* Custom scrollbar styling for webkit browsers (Chrome, Safari, Edge) */
+#addOrderModal .modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+#addOrderModal .modal-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+#addOrderModal .modal-content::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+#addOrderModal .modal-content::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* For Firefox */
+#addOrderModal .modal-content {
+    scrollbar-width: thin;
+    scrollbar-color: #c1c1c1 #f1f1f1;
+}
+
+/* Adjust form spacing within the scrollable modal */
+#addOrderModal .form-group {
+    margin-bottom: 15px; /* Reduced spacing to fit more content */
+}
+
+#addOrderModal .form-row {
+    margin-bottom: 10px;
+}
+
+#addOrderModal h3 {
+    margin-bottom: 20px;
+    position: sticky;
+    top: 0;
+    background: white;
+    padding: 10px 0;
+    z-index: 1;
+}
+
+/* Ensure the close button stays visible */
+#addOrderModal .close {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: white;
+    padding: 5px;
+    border-radius: 50%;
+}

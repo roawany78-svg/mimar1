@@ -1,0 +1,208 @@
+/* Modal Styles - Fixed Top Center Popup */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 1000;
+}
+
+.modal-overlay.active {
+    display: block;
+}
+
+.modal {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+    animation: topSlideIn 0.3s ease-out;
+}
+
+@keyframes topSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.modal-header {
+    padding: 20px 20px 0;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #64748b;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close:hover {
+    color: #475569;
+    background: #f1f5f9;
+    border-radius: 50%;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-footer {
+    padding: 0 20px 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #374151;
+}
+
+.form-input, .form-select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+.form-input:focus, .form-select:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.delete-warning {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.delete-warning p {
+    margin: 0;
+    color: #dc2626;
+    font-weight: 500;
+}
+
+.user-info {
+    background: #f8fafc;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.user-info p {
+    margin: 5px 0;
+    color: #475569;
+}
+
+/* Make it feel more like a popup window */
+.modal-header {
+    background: #f8fafc;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .modal {
+        width: 95%;
+        max-width: 95%;
+        top: 10px;
+    }
+    
+    .modal-footer {
+        flex-direction: column;
+    }
+    
+    .modal-footer .btn {
+        width: 100%;
+    }
+}
+
+/* Small screens */
+@media (max-width: 480px) {
+    .modal {
+        width: 98%;
+        max-width: 98%;
+        top: 5px;
+    }
+    
+    .modal-header {
+        padding: 15px 15px 0;
+    }
+    
+    .modal-body {
+        padding: 15px;
+    }
+    
+    .modal-footer {
+        padding: 0 15px 15px;
+    }
+}
+
+/* Add a subtle border to make it feel more like a window */
+.modal {
+    border: 1px solid #e2e8f0;
+}
+
+/* Hover effect for close button to make it more interactive */
+.modal-close {
+    transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+    transform: scale(1.1);
+}
+
+/* Focus styles for accessibility */
+.modal-close:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+.form-input:focus, .form-select:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 0;
+}

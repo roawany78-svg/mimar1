@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="title">إنشاء حساب — مع تسجيل Apple/Google</title>
+
+  <!-- original styles and scripts (unchanged) -->
+  <link rel="stylesheet" href="style1.css">
+  <script type="module" src="https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/ar_SA/appleid.auth.js"></script>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="javasc.js" defer></script>
+
+  <style>
+    /* small additions for inline status messages (blend with style1.css) */
+    #regStatus { width:100%; max-width:520px; margin:12px auto; padding:12px 14px; border-radius:8px; font-weight:600; display:none; text-align:center; }
+    #regStatus.success { background:#e6f8ef; color:#0b6d35; border:1px solid #bde7c8; }
+    #regStatus.error   { background:#fff1f0; color:#8b1c1c; border:1px solid #f1c0c0; }
+  </style>
+</head>
+<body>
+  <!-- language toggle -->
+  <button id="langToggle" class="lang-toggle" data-i18n-attr="title:toggle_title,aria-label:toggle_title">
+    <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line>
+      <path d="M12 2a15.3 15.3 0 0 1 0 20M12 2a15.3 15.3 0 0 0 0 20"></path>
+    </svg>
+    <span id="langLabel">EN</span>
+  </button>
+  <div class="container">
+    <div class="right">
+      <div class="content">
+        <h3 data-i18n="right_title">نحن نبني الثقة. نحن نبني المستقبل.</h3>
+        <p data-i18n="right_desc">انضم إلى آلاف العملاء والمقاولين الراضين</p>
+      </div>
+    </div>
+
+    <div class="left">
+      <h2 data-i18n="heading">إنشاء حساب</h2>
+      <p data-i18n="subheading">أنشئ حسابك لبدء استخدام الخدمة</p>
+
+      <!-- INLINE STATUS (will show success/error and NOT redirect) -->
+      <div id="regStatus" role="status" aria-live="polite"></div>
+
+      <!-- Keep a normal form fallback for non-JS browsers -->
+      <form id="signupForm" action="./register.php" method="post">
+        <div class="form-group">
+          <label for="full-name" data-i18n="label_full_name">الاسم الكامل</label>
+          <input
+            type="text"
+            id="full-name"
+            name="name"
+            data-i18n-attr="placeholder:ph_full_name"
+            placeholder="أدخل اسمك الكامل"
+            inputmode="text" autocomplete="name" maxlength="60"
+            pattern="^[A-Za-z\u0600-\u06FF ]+$"
+            title="الاسم يسمح بالحروف والمسافات فقط (بدون أرقام أو رموز)"
+            required
+          />
+          <div id="full-name-error" class="error" data-i18n="err_full_name" hidden>الاسم الكامل مطلوب.</div>
+        </div>
+
+        <div class="form-group">
+          <label for="email" data-i18n="label_email">البريد الإلكتروني</label>
+          <input id="email" name="email" type="email" data-i18n-attr="placeholder:ph_email" placeholder="أدخل بريدك الإلكتروني" autocomplete="email" required />
+          <div id="email-error" class="error" data-i18n="err_email" hidden>البريد الإلكتروني مطلوب.</div>
+        </div>
+
+        <div class="form-group">
+          <label for="password" data-i18n="label_password">كلمة المرور</label>
+          <input id="password" name="password" type="password" data-i18n-attr="placeholder:ph_password" placeholder="أنشئ كلمة مرور" autocomplete="new-password" required minlength="8" />
+          <div id="password-error" class="error" data-i18n="err_password" hidden>كلمة المرور مطلوبة.</div>
+        </div>
+
+        <div class="account-type">
+          <label><input type="radio" name="account-type" value="client" checked /> <span data-i18n="type_client">عميل (ابحث عن مقاولين)</span></label>
+          <label><input type="radio" name="account-type" value="contractor" /> <span data-i18n="type_contractor">مقاول (تقديم خدمات)</span></label>
+          <label><input type="radio" name="account-type" value="admin" /> <span data-i18n="type_admin">ادمن</span></label>
+        </div>
+
+        <div id="termsBlock" class="terms-line"></div>
+
+        <button type="submit" class="btn" data-i18n="btn_signup">إنشاء حساب</button>
+        
+          <!-- important: javascript uses #googleBtn for rendering Google button (javasc.js) -->
+          <div id="googleBtn"></div>
+
+          <button type="button" class="btn" id="loginBtn" data-i18n="btn_login">تسجيل الدخول</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    // Simple AJAX registration
+    document.getElementById('signupForm')?.addEventListener('submit', async function(e){
+      e.preventDefault();
+      
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData);
+      
+      try {
+        const response = await fetch('./register.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+        
+        const result = await response.json();
+        
+        if (result.ok) {
+          // Redirect based on the role - use the redirect URL from server
+          if (result.redirect) {
+            window.location.href = result.redirect;
+          } else {
+            // Fallback redirects based on role
+            if (result.user_role === 'contractor') {
+              window.location.href = './new_backend/contractors_frontend/private_profile.php?user_id=' + result.user_id;
+            } else if (result.user_role === 'client') {
+              window.location.href = './new_backend/admin_page/client_profile.php?user_id=' + result.user_id;
+            } else if (result.user_role === 'admin') {
+              // Redirect admin to ad.php with user_id parameter
+              window.location.href = './ad.php?user_id=' + result.user_id;
+            } else {
+              window.location.href = './cei.html';
+            }
+          }
+        } else {
+          // Show error message
+          const statusDiv = document.getElementById('regStatus');
+          statusDiv.textContent = 'فشل التسجيل: ' + (result.error || result.errors?.join(', ') || 'خطأ غير معروف');
+          statusDiv.className = 'error';
+          statusDiv.style.display = 'block';
+        }
+      } catch (error) {
+        // Show error message
+        const statusDiv = document.getElementById('regStatus');
+        statusDiv.textContent = 'خطأ في التسجيل: ' + error.message;
+        statusDiv.className = 'error';
+        statusDiv.style.display = 'block';
+      }
+    });
+  })();
+  </script>
+</body>
+</html>

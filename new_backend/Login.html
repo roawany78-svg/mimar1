@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mimar — Login</title>
+
+  <!-- original visual styles -->
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* small additions for status messages */
+    .status-msg { width:100%; max-width:320px; margin:12px auto 0; padding:10px 12px; border-radius:8px; font-weight:600; display:none; }
+    .status-success { background: #e6f8ef; color: #0a6d35; border:1px solid #bde7c8; }
+    .status-error   { background: #fff1f0; color: #8b1c1c; border:1px solid #f1c0c0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- LEFT: login form -->
+    <div class="left">
+      <div class="logo">
+        <img src="./uploads/contractors/1_profile_0d40c6ed88d0.png" alt="Mimar Logo" />
+      </div>
+      <h2>Welcome Back</h2>
+      <p>Sign in to your Mimar account</p>
+
+      <!-- Status message (success/error) -->
+      <div id="statusMsg" class="status-msg" role="status" aria-live="polite"></div>
+
+      <!-- login form -->
+      <form id="loginForm" action="./login.php" method="post" autocomplete="on">
+        <label>Email</label>
+        <input id="email" name="email" type="email" placeholder="Enter your email" required />
+
+        <label>Password</label>
+        <div class="password-field">
+          <input id="password" name="password" type="password" placeholder="Enter your password" required />
+        </div>
+
+        <div class="options">
+          <label><input id="remember" name="remember" type="checkbox" /> Remember me</label>
+          <a href="#">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn">Login</button>
+
+        <div class="oauth-buttons">
+          <div id="googleSignInBtn" style="margin-top:8px"></div>
+          <button type="button" class="btn secondary" id="appleSignBtn">Login with Apple</button>
+        </div>
+
+        <p class="signup">Don't have an account? <a href="res.html">Sign up</a></p>
+      </form>
+    </div>
+
+    <!-- RIGHT: marketing / branding -->
+    <div class="right">
+      <img src="./uploads/contractors/1_profile_0d40c6ed88d0.png" alt="Mimar Logo" class="right-logo" />
+      <h1>Mimar</h1>
+      <p class="tagline">We build trust. We build the future.</p>
+      <p>Connect with reliable construction contractors across Saudi Arabia</p>
+    </div>
+  </div>
+
+  <!-- Google Identity (kept) -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  
+<script>
+    document.getElementById('loginForm')?.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const statusEl = document.getElementById('statusMsg');
+        statusEl.style.display = 'none';
+        
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value;
+
+        if (!email || !password) {
+            showStatus('Enter email and password', false);
+            return;
+        }
+
+        try {
+            const formData = new FormData(this);
+            const response = await fetch('./login.php', {
+                method: 'POST',
+                body: formData
+            });
+            
+            const result = await response.json();
+            
+            if (result.ok) {
+                showStatus('Login successful - redirecting...', true, true);
+                
+                // Redirect to the URL provided by server
+                setTimeout(() => {
+                    window.location.href = result.redirect;
+                }, 1000);
+            } else {
+                showStatus(result.error || 'Login failed. Check credentials.', false);
+            }
+        } catch (error) {
+            console.error('Login error:', error);
+            showStatus('Network/server error. Try again.', false);
+        }
+    });
+
+    function showStatus(message, ok = true, keep = false) {
+        const statusEl = document.getElementById('statusMsg');
+        statusEl.textContent = message;
+        statusEl.className = 'status-msg ' + (ok ? 'status-success' : 'status-error');
+        statusEl.style.display = 'block';
+        if (!keep) {
+            setTimeout(() => { statusEl.style.display = 'none'; }, 5000);
+        }
+    }
+
+    /* ----------------- Apple sign-in (local placeholder) ----------------- */
+    document.getElementById('appleSignBtn').addEventListener('click', () => {
+        showStatus('Apple sign-in not configured in this demo.', false);
+    });
+</script>
+  
+  
+</body>
+</html>

@@ -1,0 +1,93 @@
+/* ===== الأساسيات ===== */
+html, body { min-height: 100%; }
+body{
+  font-family: Arial, sans-serif;
+  margin:0; padding:0;
+  display:flex;            /* للحفاظ على التمدد */
+  align-items:stretch;
+  background:#E0F2F1;      /* خلفية عامة فاتحة */
+  overflow-y:auto;
+}
+
+/* كبسولة تبديل اللغة */
+.lang-toggle{
+  position:fixed; top:12px; left:12px; z-index:1000;
+  display:inline-flex; align-items:center; gap:8px;
+  background:#cbe6ee; color:#334155; border:none;
+  border-radius:18px; padding:6px 12px; cursor:pointer;
+  font-weight:600; box-shadow:0 2px 6px rgba(0,0,0,.08);
+}
+.lang-toggle .globe{ width:16px; height:16px; }
+
+/* شبكة العمودين: يمين (عبارة)، يسار (نموذج) */
+.container{ display:flex; width:100%; min-height:100vh; background:#fff; }
+
+/* العمود الأيسر (النموذج) */
+.left{
+  flex:1.1; padding:48px 56px;
+  display:flex; flex-direction:column; justify-content:center; align-items:center; gap:12px;
+  text-align:left;
+}
+.left > *{ width:100%; max-width:520px; }
+
+/* العمود الأيمن (العبارة التسويقية) مع تمركز تام */
+.right{
+  flex:1; background:#005f46; color:#fff;
+  display:flex; justify-content:center; align-items:center;
+  text-align:center; padding:56px; min-height:100vh;
+}
+.right .content{ width:100%; max-width:520px; }
+
+/* الحقول والأزرار */
+.form-group{ margin-bottom:16px; }
+label{ display:block; font-weight:600; text-align:left; }
+input[type="text"], input[type="email"], input[type="password"]{
+  width:100%; padding:10px; margin-top:6px;
+  border-radius:6px; border:1px solid #ccc;
+  text-align:left; direction:auto;
+}
+
+.btn{
+  background:#4DB6AC; color:#fff; padding:12px 16px;
+  border:none; border-radius:8px; width:100%; cursor:pointer; font-size:16px;
+}
+.btn:hover{ background:#00796B; }
+
+/* ✅ بديل عام لحاوية الأزرار الإضافية (بدل oauth-buttons) */
+.extra-actions {
+  margin-top: 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 0; /* ما نحتاج gap إذا الحاوية فيها زر واحد فقط */
+}
+/* إجبار الأزرار داخل نموذج التسجيل تكون بلوك كامل العرض */
+#signupForm .btn {
+  display: block;
+  width: 100%;
+}
+
+/* مسافة واضحة تحت زر "إنشاء حساب" */
+#signupForm .btn[type="submit"] {
+  margin-bottom: 12px;   /* جرّب 16px أو 20px إذا تبغى فراغ أكبر */
+}
+
+/* رسائل الخطأ */
+.error{ color:#d32f2f; font-size:14px; margin-top:6px; text-align:left; }
+
+/* سطر الشروط */
+.terms-line{ margin-top:10px; }
+
+/* أنواع الحساب */
+.account-type{ margin-top:10px; text-align:left; display:grid; gap:6px; }
+.account-type input{ margin-left:8px; }
+
+/* استجابة للجوال */
+@media (max-width:900px){
+  .container{ flex-direction:column; }
+  .right{ min-height:220px; padding:32px 20px; }
+  .left{ padding:32px 20px; }
+
+  /* ضمان ملء الارتفاع في الجوال أيضاً */
+  html, body { height:100%; }
+  .container { min-height:100vh !important; }
+}

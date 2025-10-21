@@ -1,0 +1,71 @@
+/* project_details.css - simple, modern layout similar to screenshot */
+
+/* Reset-ish */
+* {box-sizing: border-box;}
+body {font-family: "Helvetica Neue", Arial, sans-serif; background:#f6f6f6; color:#2b2b2b; margin:0; padding:20px;}
+a {color:inherit; text-decoration:none}
+
+/* Page container */
+.page-wrap {max-width:1150px; margin:0 auto;}
+
+/* Top area containing left gallery and right details */
+.project-top {display:flex; gap:28px; align-items:flex-start; margin-bottom:28px;}
+
+.left-col {flex:0 0 520px;}
+.right-col {flex:1;}
+
+/* Main image */
+.main-image {position:relative; background:#fff; border-radius:6px; overflow:hidden; box-shadow:0 1px 0 rgba(0,0,0,0.05); border:1px solid #e6e6e6;}
+.main-image img {width:100%; height:340px; object-fit:cover; display:block;}
+.badge.status {position:absolute; top:12px; left:12px; background:#2fb36f; color:#fff; padding:6px 10px; border-radius:12px; font-size:12px; font-weight:700;}
+
+/* Thumbnail strip */
+.thumbs {display:flex; gap:8px; margin-top:10px;}
+.thumb {width:86px; height:66px; background:#fff; border-radius:6px; overflow:hidden; border:1px solid #e5e5e5; cursor:pointer; display:flex; align-items:center; justify-content:center;}
+.thumb img {width:100%; height:100%; object-fit:cover; display:block;}
+.thumb.active {outline:2px solid #1e9bd1;}
+
+/* Right column header */
+.project-title {font-size:22px; margin:0 0 8px; color:#0f2942;}
+.project-desc {color:#4b4b4b; margin:0 0 12px; line-height:1.45; max-height:140px; overflow:auto;}
+
+/* meta row */
+.meta-row {display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;}
+.rating .stars {font-weight:700; color:#f5a623; display:flex; align-items:center; gap:8px;}
+.rating .star-val {background:#fff; padding:6px 8px; border-radius:6px; color:#222; font-size:16px;}
+.rating .star-count {font-size:13px; color:#888; font-weight:400;}
+.location-area {color:#6b6b6b; font-size:14px; display:flex; gap:8px; align-items:center;}
+.location-area .dot {opacity:0.5}
+
+/* Contractor card */
+.contractor-card {display:flex; align-items:center; gap:12px; background:#fff; border:1px solid #e9e9e9; padding:12px; border-radius:8px; margin-bottom:14px;}
+.contractor-avatar {width:64px; height:64px; border-radius:50%; object-fit:cover; border:1px solid #ddd;}
+.contractor-name {font-weight:700; color:#16364a;}
+.contractor-sub {font-size:13px; color:#6b6b6b;}
+.profile-left {flex:0 0 64px;}
+.profile-right {flex:1}
+.profile-actions {flex:0 0 auto;}
+.btn-view {display:inline-block; padding:8px 12px; background:#fff; border:1px solid #e6e6e6; border-radius:6px; font-size:13px; color:#2b6b86;}
+
+/* Contract download panel */
+.contract-download {display:flex; align-items:center; justify-content:space-between; background:#fff; border:1px solid #e9e9e9; padding:12px; border-radius:8px;}
+.contract-filename {color:#666; margin-top:6px; font-size:13px;}
+.btn-download {background:#fff; border:1px solid #e6e6e6; padding:8px 12px; border-radius:6px; color:#2b6b86;}
+.btn-download.disabled {opacity:0.5; cursor:not-allowed;}
+
+/* Bottom cards */
+.project-bottom {display:flex; gap:20px; margin-top:22px;}
+.card {background:#fff; border-radius:8px; padding:18px; border:1px solid #e9e9e9; flex:1;}
+.timeline-table td {padding:6px 0; vertical-align:top; color:#4b4b4b;}
+.timeline-table td:first-child {color:#7a7a7a; width:120px;}
+.spec-list {margin:8px 0 0 18px;}
+.spec-list li {margin:8px 0; color:#3a3a3a;}
+
+/* Responsive */
+@media (max-width:900px) {
+    .project-top {flex-direction:column;}
+    .left-col {width:100%;}
+    .main-image img {height:260px;}
+    .thumbs {overflow-x:auto;}
+    .project-bottom {flex-direction:column;}
+}
