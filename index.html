@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mimar</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <div class="logo">
+        <img src="images/mimar_-logo.jpeg" alt="Mimar Logo"/>
+        <span>Mimar</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#" data-i18n="home">Home</a>
+        <a href="#" data-i18n="about">About</a>
+        <a href="projects.html" data-i18n="projects">Projects</a>
+        <a href="#" data-i18n="contractors">Contractors</a>
+        <a href="#" data-i18n="profile">Profile</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="lang-toggle" id="lang-toggle">
+          <i class="fa-solid fa-globe"></i>
+          <span id="lang-text">EN</span>
+        </button>
+        <a href="#" class="btn-cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </a>
+        <a href="#" class="btn-login" data-i18n="login">
+          <i class="fa-solid fa-user"></i> Login
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-container">
+      <div class="hero-text">
+        <h1>
+          <span class="white-text" data-i18n="heroTitle1">We Build Trust.</span><br/>
+          <span class="faded-text" data-i18n="heroTitle2">We Build the Future</span>
+        </h1>
+        <p data-i18n="heroSubtitle">
+          Connect with reliable construction contractors across Saudi Arabia. Your dream project starts here.
+        </p>
+        <div class="hero-buttons">
+          <a href="#" class="btn-primary" data-i18n="explore">Explore Contractors</a>
+          <a href="#" class="btn-secondary" data-i18n="viewProjects">View Projects</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="images/hero-construction-CMNyidZq.jpg" alt="Construction"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats">
+    <div class="container stats-container">
+      <div class="stat">
+        <div class="icon-circle"><i class="fa-solid fa-user-check"></i></div>
+        <h2>500+</h2>
+        <p data-i18n="stats1">Verified Contractors</p>
+      </div>
+      <div class="stat">
+        <div class="icon-circle blue"><i class="fa-solid fa-trophy"></i></div>
+        <h2>1,200+</h2>
+        <p data-i18n="stats2">Completed Projects</p>
+      </div>
+      <div class="stat">
+        <div class="icon-circle green"><i class="fa-solid fa-shield-halved"></i></div>
+        <h2>98%</h2>
+        <p data-i18n="stats3">Satisfaction Rate</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Contractors -->
+  <section class="ai-contractors">
+    <div class="container">
+      <h2 data-i18n="aiTitle">AI Recommended Contractors</h2>
+      <p data-i18n="aiSubtitle">
+        Our AI system matches you with the best contractors based on your project needs and location.
+      </p>
+      <div class="cards">
+        <div class="card">
+          <img src="images/contractorname.jpg" alt="Contractor"/>
+          <h3>Ahmed Ali</h3>
+          <p>Residential Contractor - Riyadh</p>
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
+          <button class="btn-primary" data-i18n="viewDetails">View Details</button>
+        </div>
+
+        <div class="card">
+          <img src="images/contractorname.jpg" alt="Contractor"/>
+          <h3>Badr Ali</h3>
+          <p>Residential Contractor - Riyadh</p>
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
+          <button class="btn-primary" data-i18n="viewDetails">View Details</button>
+        </div>
+
+        <div class="card">
+          <img src="images/contractorname.jpg" alt="Contractor"/>
+          <h3>Mohammed Saleh</h3>
+          <p>Commercial Contractor - Jeddah</p>
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <button class="btn-primary" data-i18n="viewDetails">View Details</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects -->
+  <section class="featured">
+    <div class="container">
+      <h2 data-i18n="featuredTitle">Featured Projects</h2>
+      <p data-i18n="featuredSubtitle">
+        Discover amazing construction projects completed by our verified contractors.
+      </p>
+      <div class="cards">
+        <div class="card">
+          <img src="images/projectcontrac.jpg" alt="Project"/>
+          <h3>Modern Villa</h3>
+          <p>By Ahmed Ali</p>
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
+          <button class="btn-primary" data-i18n="viewDetails">View Details</button>
+        </div>
+        <div class="card">
+          <img src="images/projectcontrac.jpg" alt="Project"/>
+          <h3>Office Tower</h3>
+          <p>By Mohammed Saleh</p>
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <button class="btn-primary" data-i18n="viewDetails">View Details</button>
+        </div>
+      </div>
+      <div class="center-btn">
+        <button class="btn-secondary" data-i18n="viewAll">View All Projects</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <h2 data-i18n="ctaTitle">Ready to Start Your Project?</h2>
+      <p data-i18n="ctaSubtitle">
+        Join thousands of satisfied clients who found their perfect contractor through Mimar.
+      </p>
+      <div class="cta-buttons">
+        <a href="#" class="btn-primary" data-i18n="getStarted">Get Started Today</a>
+        <a href="#" class="btn-secondary" data-i18n="learnMore">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-about">
+        <h3>Mimar</h3>
+        <p data-i18n="footerAbout">We build trust. We build the future. Connecting clients with reliable construction contractors in Saudi Arabia.</p>
+      </div>
+      <div class="footer-links">
+        <h4 data-i18n="quickLinks">Quick Links</h4>
+        <a href="#" data-i18n="about">About Us</a>
+        <a href="projects.html" data-i18n="projects">Projects</a>
+        <a href="#" data-i18n="contractors">Contractors</a>
+        <a href="#" data-i18n="contactUs">Contact</a>
+      </div>
+      <div class="footer-services">
+        <h4 data-i18n="services">Services</h4>
+        <a href="#">Residential Construction</a>
+        <a href="#">Commercial Building</a>
+        <a href="#">Renovation</a>
+        <a href="#">Technical support</a>
+      </div>
+      <div class="footer-contact">
+        <h4 data-i18n="contactUs">Contact Us</h4>
+        <p>info@mimar.sa</p>
+        <p>+966 11 234 5678</p>
+        <div class="social">
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-regular fa-envelope"></i>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 Mimar. All rights reserved. | Terms & Conditions | Privacy Policy
+    </div>
+  </footer>
+
+  <!-- Chat -->
+  <a href="aiChat.html" class="chat-icon"><i class="fa-solid fa-comment-dots"></i>
+
+  <script>
+  const translations = {
+  en: {
+    home: "Home",
+    about: "About",
+    projects: "Projects",
+    contractors: "Contractors",
+    profile: "Profile",
+    login: "Login",
+    heroTitle1: "We Build Trust.",
+    heroTitle2: "We Build the Future",
+    heroSubtitle: "Connect with reliable construction contractors across Saudi Arabia. Your dream project starts here.",
+    explore: "Explore Contractors",
+    viewProjects: "View Projects",
+    stats1: "Verified Contractors",
+    stats2: "Completed Projects",
+    stats3: "Satisfaction Rate",
+    aiTitle: "AI Recommended Contractors",
+    aiSubtitle: "Our AI system matches you with the best contractors based on your project needs and location.",
+    viewDetails: "View Details",
+    featuredTitle: "Featured Projects",
+    featuredSubtitle: "Discover amazing construction projects completed by our verified contractors.",
+    viewAll: "View All Projects",
+    ctaTitle: "Ready to Start Your Project?",
+    ctaSubtitle: "Join thousands of satisfied clients who found their perfect contractor through Mimar.",
+    getStarted: "Get Started Today",
+    learnMore: "Learn More",
+    footerAbout: "We build trust. We build the future. Connecting clients with reliable construction contractors in Saudi Arabia.",
+    quickLinks: "Quick Links",
+    services: "Services",
+    service1: "Residential Construction",
+    service2: "Commercial Building",
+    service3: "Renovation",
+    service4: "Technical Support",
+    contactUs: "Contact Us"
+  },
+  ar: {
+    home: "الرئيسية",
+    about: "من نحن",
+    projects: "المشاريع",
+    contractors: "المقاولون",
+    profile: "الملف الشخصي",
+    login: "تسجيل الدخول",
+    heroTitle1: "نحن نبني الثقة.",
+    heroTitle2: "نحن نبني المستقبل",
+    heroSubtitle: "تواصل مع مقاولين موثوقين في جميع أنحاء المملكة. مشروع أحلامك يبدأ من هنا.",
+    explore: "استكشف المقاولين",
+    viewProjects: "عرض المشاريع",
+    stats1: "مقاولون موثقون",
+    stats2: "مشاريع مكتملة",
+    stats3: "معدل الرضا",
+    aiTitle: "المقاولون الموصى بهم بالذكاء الاصطناعي",
+    aiSubtitle: "نظامنا الذكي يطابقك مع أفضل المقاولين بناءً على احتياجات مشروعك وموقعك.",
+    viewDetails: "عرض التفاصيل",
+    featuredTitle: "المشاريع المميزة",
+    featuredSubtitle: "اكتشف مشاريع بناء مذهلة أنجزها مقاولونا الموثوقون.",
+    viewAll: "عرض جميع المشاريع",
+    ctaTitle: "هل أنت مستعد لبدء مشروعك؟",
+    ctaSubtitle: "انضم إلى آلاف العملاء الذين وجدوا المقاول المثالي عبر منصة ميمار.",
+    getStarted: "ابدأ الآن",
+    learnMore: "اعرف المزيد",
+    footerAbout: "نحن نبني الثقة. نحن نبني المستقبل. نربط العملاء مع مقاولين موثوقين في المملكة.",
+    quickLinks: "روابط سريعة",
+    services: "الخدمات",
+    service1: "البناء السكني",
+    service2: "البناء التجاري",
+    service3: "التجديد",
+    service4: "الدعم الفني",
+    contactUs: "تواصل معنا"
+  }
+};
+
+
+  const langToggle = document.getElementById("lang-toggle");
+  const langText = document.getElementById("lang-text");
+  let currentLang = "en"; // اللغة الافتراضية
+
+  function updateLanguage(lang) {
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      if (translations[lang][key]) {
+        el.textContent = translations[lang][key];
+      }
+    });
+
+    // اتجاه النص حسب اللغة
+    document.documentElement.lang = lang;
+    document.body.dir = lang === "ar" ? "rtl" : "ltr";
+
+    // تحديث نص الزر
+    langText.textContent = lang === "ar" ? "AR" : "EN";
+  }
+
+  langToggle.addEventListener("click", () => {
+    currentLang = currentLang === "en" ? "ar" : "en";
+    updateLanguage(currentLang);
+  });
+
+  // عند تحميل الصفحة
+  updateLanguage(currentLang);
+</script>
+
+</body>
+</html>
