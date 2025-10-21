@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects Gallery</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <div class="logo">
+        <img src="images/mimar_-logo.jpeg" alt="Mimar Logo"/>
+        <span>Mimar</span>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html" data-i18n="home">Home</a>
+        <a href="#" data-i18n="about">About</a>
+        <a href="projects.html" data-i18n="projects">Projects</a>
+        <a href="#" data-i18n="contractors">Contractors</a>
+        <a href="#" data-i18n="profile">Profile</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="lang-toggle" id="lang-toggle">
+          <i class="fa-solid fa-globe"></i>
+          <span id="lang-text">EN</span>
+        </button>
+        <a href="#" class="btn-cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </a>
+        <a href="#" class="btn-login" data-i18n="login">
+          <i class="fa-solid fa-user"></i> Login
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Projects -->
+  <section class="projects-hero">
+    <div class="container">
+      <h1>Project Gallery</h1>
+      <p>Explore amazing construction projects completed by our verified contractors across Saudi Arabia.</p>
+      <div class="projects-filters">
+        <!-- البحث -->
+        <div class="search-box">
+          <i class="fa fa-search"></i>
+          <input type="text" id="searchInput" placeholder="Search projects...">
+        </div>
+
+        <!-- الفلتر Dropdown -->
+        <div class="filter-dropdown">
+          <button id="filterToggle">
+            <i class="fa fa-filter"></i> <span id="filterLabel">All Projects</span> <i class="fa fa-caret-down"></i>
+          </button>
+          <ul id="filterMenu" class="hidden">
+            <li onclick="setFilter('all')">All Projects</li>
+            <li onclick="setFilter('completed')">Completed</li>
+            <li onclick="setFilter('ongoing')">In Progress</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Grid -->
+  <section class="projects-grid">
+    <div class="container grid">
+      <!-- Project 1 -->
+      <div class="project-card completed">
+        <img src="images/projectcontrac.jpg" alt="Modern Villa Construction">
+        <div class="project-content">
+          <h3>Modern Villa Construction</h3>
+          <p class="by">By Contractor Name</p>
+          <p class="desc">Luxury residential villa with modern architecture.</p>
+          <p class="meta"><i class="fa-solid fa-location-dot"></i> Riyadh, KSA</p>
+          <p class="meta"><i class="fa-solid fa-calendar-days"></i> Jan 2025</p>
+          <a href="projectDetails.html" class="pro-btn">View Details</a>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card completed">
+        <img src="images/projectcontrac.jpg" alt="Office Building Renovation">
+        <div class="project-content">
+          <h3>Office Building Renovation</h3>
+          <p class="by">By Contractor Name</p>
+          <p class="desc">Complete renovation of 5-story office building.</p>
+          <p class="meta"><i class="fa-solid fa-location-dot"></i> Jeddah, KSA</p>
+          <p class="meta"><i class="fa-solid fa-calendar-days"></i> Feb 2025</p>
+          <a href="projectDetails.html" class="pro-btn">View Details</a>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card ongoing">
+        <img src="images/projectcontrac.jpg" alt="Shopping Mall Interior">
+        <div class="project-content">
+          <h3>Shopping Mall Interior</h3>
+          <p class="by">By Contractor Name</p>
+          <p class="desc">Interior design and construction for shopping mall.</p>
+          <p class="meta"><i class="fa-solid fa-location-dot"></i> Dammam, KSA</p>
+          <p class="meta"><i class="fa-solid fa-calendar-days"></i> Mar 2025</p>
+          <a href="projectDetails.html" class="pro-btn">View Details</a>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-card ongoing">
+        <img src="images/projectcontrac.jpg" alt="Residential Complex">
+        <div class="project-content">
+          <h3>Residential Complex</h3>
+          <p class="by">By Contractor Name</p>
+          <p class="desc">20-unit residential complex with amenities.</p>
+          <p class="meta"><i class="fa-solid fa-location-dot"></i> Abha, KSA</p>
+          <p class="meta"><i class="fa-solid fa-calendar-days"></i> Apr 2025</p>
+          <a href="projectDetails.html" class="pro-btn">View Details</a>
+        </div>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="project-card completed">
+        <img src="images/projectcontrac.jpg" alt="Hospital Extension">
+        <div class="project-content">
+          <h3>Hospital Extension</h3>
+          <p class="by">By Contractor Name</p>
+          <p class="desc">New wing construction for regional hospital.</p>
+          <p class="meta"><i class="fa-solid fa-location-dot"></i> Medina, KSA</p>
+          <p class="meta"><i class="fa-solid fa-calendar-days"></i> May 2025</p>
+          <a href="projectDetails.html" class="pro-btn">View Details</a>
+        </div>
+      </div>
+
+      <!-- Project 6 -->
+      <div class="project-card ongoing">
+        <img src="images/projectcontrac.jpg" alt="School Building">
+        <div class="project-content">
+          <h3>School Building</h3>
+          <p class="by">By Contractor Name</p>
+          <p class="desc">New elementary school construction.</p>
+          <p class="meta"><i class="fa-solid fa-location-dot"></i> Taif, KSA</p>
+          <p class="meta"><i class="fa-solid fa-calendar-days"></i> Jun 2025</p>
+          <a href="projectDetails.html" class="pro-btn">View Details</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- رسالة لا يوجد نتائج + زر إعادة التصفية -->
+  <section id="noResultsSection" style="
+      display: none;
+      height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 15px;
+  ">
+    <div id="noResults" style="color: #444; font-weight: bold; font-size: 1.2rem;">
+      No project found matching your criteria
+    </div>
+    <button class="btn-primary" onclick="clearFilters()">Clear Filters</button>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <h2 data-i18n="ctaTitle">Ready to Start Your Project?</h2>
+      <p data-i18n="ctaSubtitle">
+        Join thousands of satisfied clients who found their perfect contractor through Mimar.
+      </p>
+      <div class="cta-buttons">
+        <a href="#" class="btn-primary" data-i18n="getStarted">Get Started Today</a>
+        <a href="#" class="btn-secondary" data-i18n="learnMore">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-about">
+        <h3>Mimar</h3>
+        <p data-i18n="footerAbout">We build trust. We build the future. Connecting clients with reliable construction contractors in Saudi Arabia.</p>
+      </div>
+      <div class="footer-links">
+        <h4 data-i18n="quickLinks">Quick Links</h4>
+        <a href="#" data-i18n="about">About Us</a>
+        <a href="projects.html" data-i18n="projects">Projects</a>
+        <a href="#" data-i18n="contractors">Contractors</a>
+        <a href="#" data-i18n="contactUs">Contact</a>
+      </div>
+      <div class="footer-services">
+        <h4 data-i18n="services">Services</h4>
+        <a href="#">Residential Construction</a>
+        <a href="#">Commercial Building</a>
+        <a href="#">Renovation</a>
+        <a href="#">Technical support</a>
+      </div>
+      <div class="footer-contact">
+        <h4 data-i18n="contactUs">Contact Us</h4>
+        <p>info@mimar.sa</p>
+        <p>+966 11 234 5678</p>
+        <div class="social">
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-regular fa-envelope"></i>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 Mimar. All rights reserved. | Terms & Conditions | Privacy Policy
+    </div>
+  </footer>
+
+  <!-- Chat -->
+  <div class="chat-icon"><i class="fa-solid fa-comment-dots"></i></div>
+
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const projects = document.querySelectorAll(".project-card");
+    const noResultsSection = document.getElementById("noResultsSection");
+
+    const filterLabel = document.getElementById("filterLabel");
+    const filterMenu = document.getElementById("filterMenu");
+    const filterToggle = document.getElementById("filterToggle");
+
+    let currentFilter = "all";
+
+    // فتح/إغلاق القائمة
+    filterToggle.addEventListener("click", () => {
+      filterMenu.classList.toggle("show");
+    });
+
+    function setFilter(status) {
+      currentFilter = status;
+      filterLabel.textContent =
+        status === "all"
+          ? "All Projects"
+          : status === "completed"
+          ? "Completed"
+          : "In Progress";
+
+      filterMenu.classList.remove("show");
+      filterProjects();
+    }
+
+    function filterProjects() {
+      const searchText = searchInput.value.toLowerCase();
+      let found = false;
+
+      projects.forEach((project) => {
+        const name = project.querySelector("h3").textContent.toLowerCase();
+        const projectStatus = project.classList.contains("completed")
+          ? "completed"
+          : "ongoing";
+
+        const matchesSearch = name.includes(searchText);
+        const matchesFilter =
+          currentFilter === "all" || currentFilter === projectStatus;
+
+        if (matchesSearch && matchesFilter) {
+          project.style.display = "block";
+          found = true;
+        } else {
+          project.style.display = "none";
+        }
+      });
+
+      // إظهار أو إخفاء سكشن الرسالة وزر
+      noResultsSection.style.display = found ? "none" : "flex";
+    }
+
+    searchInput.addEventListener("input", filterProjects);
+
+    function clearFilters() {
+      searchInput.value = "";
+      setFilter("all");
+    }
+
+    // تشغيل أول مرة
+    filterProjects();
+  </script>
+
+
+
+</body>
+</html>

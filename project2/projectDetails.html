@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project Details - Mimar</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="project-details.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- ✅ Header -->
+   <header class="navbar">
+    <div class="container nav-container">
+      <div class="logo">
+        <img src="images/mimar_-logo.jpeg" alt="Mimar Logo"/>
+        <span>Mimar</span>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html" data-i18n="home">Home</a>
+        <a href="#" data-i18n="about">About</a>
+        <a href="projects.html" data-i18n="projects">Projects</a>
+        <a href="#" data-i18n="contractors">Contractors</a>
+        <a href="#" data-i18n="profile">Profile</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="lang-toggle" id="lang-toggle">
+          <i class="fa-solid fa-globe"></i>
+          <span id="lang-text">EN</span>
+        </button>
+        <a href="#" class="btn-cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </a>
+        <a href="#" class="btn-login" data-i18n="login">
+          <i class="fa-solid fa-user"></i> Login
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ✅ Section 1: Back Button -->
+  <section class="back-section">
+    <a href="projects.html" class="back-link"><i class="fa fa-arrow-left"></i> Back to Projects</a>
+  </section>
+
+  <!-- ✅ Section 2: Project Overview -->
+  <section class="project-overview">
+    <div class="project-left">
+      <div class="main-img-wrapper">
+        <img src="images/projectcontrac.jpg" alt="Project Image" class="main-img"/>
+        <span class="status-badge completed">Completed</span>
+      </div>
+      <div class="thumbs">
+        <img src="images/projectcontrac.jpg" alt="thumb"/>
+        <img src="images/projectcontrac.jpg" alt="thumb"/>
+        <img src="images/projectcontrac.jpg" alt="thumb"/>
+      </div>
+    </div>
+
+    <div class="project-right">
+      <h1>Modern Villa Construction</h1>
+      <p class="project-desc">
+        This luxury residential villa project showcases modern architecture with sustainable building practices. 
+        The project includes a 5-bedroom villa with contemporary design elements, smart home integration, and 
+        eco-friendly materials. The construction process emphasized quality craftsmanship and attention to detail 
+        throughout all phases.
+      </p>
+
+      <div class="rating">
+        <span class="star">★</span>
+        <span class="rate-val">4.8</span>
+        <span class="reviews">(127 reviews)</span>
+      </div>
+
+      <div class="project-meta">
+        <p><i class="fa fa-map-marker-alt"></i> Riyadh, Saudi Arabia</p>
+        <p><i class="fa fa-ruler-combined"></i> 450 sqm</p>
+      </div>
+
+      <div class="contractor-card">
+        <img src="images/contractorname.jpg" alt="contractor"/>
+        <div class="contractor-info">
+          <h4>Ahmed Al-Saud</h4>
+          <p>Licensed Contractor</p>
+        </div>
+        <button class="profile-btn">View Profile</button>
+      </div>
+
+      <div class="contract-card">
+        <div class="contract-info">
+          <i class="fa fa-file-contract"></i>
+          <div>
+            <h4>Project Contract</h4>
+            <p>project-contract-001.pdf</p>
+          </div>
+        </div>
+        <a href="project-contract.pdf" download class="download-btn">Download</a>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- section 3: Timeline + Specifications -->
+  <section class="details-section">
+    <div class="timeline-card">
+      <h3><i class="fa fa-calendar"></i> Project Timeline</h3>
+      <p><span>Start Date:</span> 1/15/2024</p>
+      <p><span>End Date:</span> 8/15/2024</p>
+      <p><span>Duration:</span> 7 months</p>
+      <p><span>Budget:</span> <strong class="price">850,000 SAR</strong></p>
+    </div>
+
+    <div class="specs-card">
+      <h3>Project Specifications</h3>
+      <ul>
+        <li>Reinforced concrete foundation</li>
+        <li>Steel frame construction</li>
+        <li>Premium ceramic tiles</li>
+        <li>Central air conditioning</li>
+        <li>Smart home automation</li>
+        <li>Security system integration</li>
+        <li>Landscape design included</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2 data-i18n="ctaTitle">Ready to Start Your Project?</h2>
+      <p data-i18n="ctaSubtitle">
+        Join thousands of satisfied clients who found their perfect contractor through Mimar.
+      </p>
+      <div class="cta-buttons">
+        <a href="#" class="btn-primary" data-i18n="getStarted">Get Started Today</a>
+        <a href="#" class="btn-secondary" data-i18n="learnMore">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-about">
+        <h3>Mimar</h3>
+        <p data-i18n="footerAbout">We build trust. We build the future. Connecting clients with reliable construction contractors in Saudi Arabia.</p>
+      </div>
+      <div class="footer-links">
+        <h4 data-i18n="quickLinks">Quick Links</h4>
+        <a href="#" data-i18n="about">About Us</a>
+        <a href="projects.html" data-i18n="projects">Projects</a>
+        <a href="#" data-i18n="contractors">Contractors</a>
+        <a href="#" data-i18n="contactUs">Contact</a>
+      </div>
+      <div class="footer-services">
+        <h4 data-i18n="services">Services</h4>
+        <a href="#">Residential Construction</a>
+        <a href="#">Commercial Building</a>
+        <a href="#">Renovation</a>
+        <a href="#">Technical support</a>
+      </div>
+      <div class="footer-contact">
+        <h4 data-i18n="contactUs">Contact Us</h4>
+        <p>info@mimar.sa</p>
+        <p>+966 11 234 5678</p>
+        <div class="social">
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-regular fa-envelope"></i>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 Mimar. All rights reserved. | Terms & Conditions | Privacy Policy
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>مساعد معمار الذكي</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    :root{
+      --accent:#005f46; /* اللون الأساسي لموقع معمار */
+      --accent-2:#007c5a; /* درجة أفتح قليلاً */
+      --bg:#f4f7f6;
+      --card:#ffffff;
+      --muted:#6b7b75;
+      --radius:14px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:'Tajawal',system-ui,Arial;
+      background:linear-gradient(180deg,var(--bg) 0%, #eaf3ef 100%);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      color:#0f172a;
+    }
+
+     .chat-app{
+      width:100%;
+      max-width:980px;
+      height:80vh;
+      display:grid;
+      grid-template-columns:360px 1fr;
+      gap:20px;
+    }
+
+    .sidebar{
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:0 6px 18px rgba(12,20,40,0.06);
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      min-height:0;
+    }
+    .brand{
+      display:flex;align-items:center;gap:12px
+    }
+    .brand .logo{
+      width:48px;height:48px;border-radius:10px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:inline-grid;place-items:center;
+      overflow:hidden;
+    }
+    .brand .logo img{
+      width:100%;height:100%;object-fit:cover;
+    }
+    .brand h3{margin:0;font-size:16px}
+    .brand p{margin:0;font-size:12px;color:var(--muted)}
+
+    .quick-actions{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+    .action{padding:10px;border-radius:12px;border:1px solid #e6efea;cursor:pointer}
+    .action:hover{background:#f0f8f4}
+
+    .contractor-preview{margin-top:auto}
+    .contractor-preview h4{margin:0 0 8px 0}
+    .contractor-card{display:flex;gap:10px;align-items:center;padding:10px;border-radius:12px;border:1px solid #e6efea}
+    .contractor-card img{width:54px;height:54px;border-radius:8px;object-fit:cover}
+    .contractor-info{flex:1}
+    .contractor-info .name{font-weight:600}
+    .contractor-info .meta{font-size:12px;color:var(--muted)}
+
+    .chat-area{
+      background:linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.9));
+      border-radius:var(--radius);
+      display:flex;flex-direction:column;overflow:hidden;min-height:0;box-shadow:0 10px 30px rgba(12,20,40,0.06);
+    }
+    .chat-header{display:flex;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid #e6efea}
+    .chat-header .title{font-weight:700;color:var(--accent)}
+    .chat-header .desc{color:var(--muted);font-size:13px}
+
+    .messages{
+      padding:18px;flex:1;overflow:auto;display:flex;flex-direction:column;gap:12px
+    }
+
+    .bubble{max-width:78%;padding:12px 14px;border-radius:16px;line-height:1.4;font-size:15px}
+    .bot{align-self:flex-start;background:#fff;border:1px solid #e6efea;color:#0f172a}
+    .user{align-self:flex-end;background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#fff}
+
+    .suggestions{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+    .suggestion-card{display:flex;gap:12px;align-items:center;padding:12px;border-radius:12px;border:1px solid #e6efea;background:#fff}
+    .suggestion-card img{width:64px;height:64px;border-radius:8px;object-fit:cover}
+    .suggestion-card .info{flex:1}
+    .suggestion-card .info .title{font-weight:700}
+    .suggestion-card .info .sub{font-size:13px;color:var(--muted)}
+    .suggestion-card .actions{display:flex;gap:8px}
+    .btn{padding:8px 12px;border-radius:10px;border:none;cursor:pointer}
+    .btn.primary{background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#fff}
+    .btn.ghost{background:transparent;border:1px solid #cde2d9;color:var(--accent)}
+
+    .composer{padding:14px;border-top:1px solid #e6efea;display:flex;gap:8px;align-items:center}
+    .composer input{flex:1;padding:12px 14px;border-radius:12px;border:1px solid #cde2d9;background:transparent;font-size:15px}
+    .composer .send{min-width:90px}
+    .attach-btn {
+  color: var(--accent);
+  font-size: 20px;
+  cursor: pointer;
+  margin: 0 8px;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+
+.attach-btn:hover {
+  color: var(--accent-2);
+}
+
+    .muted{color:var(--muted);font-size:13px}
+
+    @media (max-width:900px){
+      .chat-app{grid-template-columns:1fr;align-items:stretch;height:92vh}
+      .sidebar{order:2}
+      .chat-area{order:1}
+    }
+  </style>
+</head>
+<body>
+
+
+  <div class="chat-app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo">
+          <img src="images/mimar_-logo.jpeg" alt="Mimar Logo">
+        </div>
+        <div>
+          <h3>معمار</h3>
+          <p>مساعد معمار الذكي</p>
+        </div>
+      </div>
+
+      <div class="quick-actions" role="list">
+        <div class="action">أحتاج سباك في الرياض</div>
+        <div class="action">ما هي تراخيص البناء المطلوبة؟</div>
+        <div class="action">أريد ترشيح مقاول ترميم</div>
+        <div class="action">كيف أتعامل مع مقاول جديد؟</div>
+      </div>
+
+      <div class="contractor-preview">
+        <h4>ترشيح سريع</h4>
+        <div class="contractor-card">
+          <img src="images/contractorname.jpg" alt="صورة مقاول">
+          <div class="contractor-info">
+            <div class="name"> Ahmed Ali </div>
+            <div class="meta">الرياض • تقييم 4.8</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="chat-area" role="main">
+      <header class="chat-header">
+        <div>
+          <div class="title">مساعد معمار الذكي</div>
+          <div class="desc">اسأل عن أي شيء يخص المقاولات وسأساعدك فورًا</div>
+        </div>
+      </header>
+
+      <section class="messages" id="messages" aria-live="polite">
+        <div class="bubble bot">مرحبًا! أنا مساعد معمار الذكي. كيف أقدر أساعدك اليوم؟</div>
+      </section>
+
+      <div class="composer">
+        <input id="inputMessage" placeholder="اكتب سؤالك أو طلبك هنا..." aria-label="اكتب رسالة">
+        <label for="fileInput" class="attach-btn">
+        <i class="fa-solid fa-paperclip"></i>
+          </label>
+            <input type="file" id="fileInput" style="display:none" multiple>
+        <button class="btn primary send" id="sendBtn">إرسال</button>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const contractors = [
+      {id:1,name:'السباك الذهبي',trade:'سباكة',city:'الرياض',rating:4.9,avatar:'https://images.unsplash.com/photo-1542744173-05336fcc7ad4?w=600&q=80&auto=format&fit=crop'},
+      {id:2,name:'كهرباء الريان',trade:'كهرباء',city:'جدة',rating:4.7,avatar:'https://images.unsplash.com/photo-1520614073990-dd6020f3b3b0?w=600&q=80&auto=format&fit=crop'},
+      {id:3,name:'ترميم البلاد',trade:'ترميم',city:'الدمام',rating:4.6,avatar:'https://images.unsplash.com/photo-1505691723518-36a6d3ad6b60?w=600&q=80&auto=format&fit=crop'},
+      {id:4,name:'شركة العمار',trade:'مقاولات عامة',city:'الرياض',rating:4.8,avatar:'https://images.unsplash.com/photo-1556767576-cf6f07f1d3d0?w=600&q=80&auto=format&fit=crop'}
+    ];
+
+    const messagesEl = document.getElementById('messages');
+    const inputEl = document.getElementById('inputMessage');
+    const sendBtn = document.getElementById('sendBtn');
+
+    function appendMessage(text,who='bot'){
+      const div = document.createElement('div');
+      div.className = 'bubble ' + (who==='user'? 'user':'bot');
+      div.textContent = text;
+      messagesEl.appendChild(div);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+      return div;
+    }
+
+    function showSuggestions(list){
+      const container = document.createElement('div');
+      container.className='suggestions';
+      list.forEach(c=>{
+        const card = document.createElement('div');
+        card.className='suggestion-card';
+        card.innerHTML = `
+          <img src="${c.avatar}" alt="${c.name}">
+          <div class="info">
+            <div class="title">${c.name}</div>
+            <div class="sub">${c.trade} · ${c.city} · ⭐ ${c.rating}</div>
+          </div>
+          <div class="actions">
+            <button class="btn primary" onclick="contact(${c.id})">عرض</button>
+          </div>`;
+        container.appendChild(card);
+      });
+      messagesEl.appendChild(container);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+
+    sendBtn.addEventListener('click',sendMessage);
+    inputEl.addEventListener('keydown',e=>{if(e.key==='Enter')sendMessage();});
+
+    function sendMessage(){
+      const text = inputEl.value.trim();
+      if(!text) return;
+      appendMessage(text,'user');
+      inputEl.value='';
+
+      setTimeout(()=>{
+        const reply = aiReply(text);
+        appendMessage(reply.text,'bot');
+        if(reply.suggestions) showSuggestions(reply.suggestions);
+      },700);
+    }
+    // التعامل مع اختيار الملفات من زر المرفقات
+const fileInput = document.getElementById('fileInput');
+
+fileInput.addEventListener('change', () => {
+  const files = Array.from(fileInput.files);
+  if (!files.length) return;
+
+  files.forEach(file => {
+    const fileType = file.type;
+
+    // إنشاء عنصر الرسالة (فقاعة) لعرض المرفق
+    const div = document.createElement('div');
+    div.className = 'bubble user';
+
+    if (fileType.startsWith('image/')) {
+      const img = document.createElement('img');
+      img.src = URL.createObjectURL(file);
+      img.style.maxWidth = '180px';
+      img.style.borderRadius = '10px';
+      div.appendChild(img);
+    } 
+    else if (fileType.startsWith('video/')) {
+      const video = document.createElement('video');
+      video.src = URL.createObjectURL(file);
+      video.controls = true;
+      video.style.maxWidth = '220px';
+      video.style.borderRadius = '10px';
+      div.appendChild(video);
+    } 
+    else {
+      // ملفات أخرى (PDF, DOCX, ZIP ...)
+      const fileLink = document.createElement('a');
+      fileLink.href = URL.createObjectURL(file);
+      fileLink.download = file.name;
+      fileLink.textContent = '📄 ' + file.name;
+      fileLink.style.color = '#fff';
+      div.appendChild(fileLink);
+    }
+
+    // إضافة الرسالة إلى منطقة الشات
+    document.getElementById('messages').appendChild(div);
+    document.getElementById('messages').scrollTop = document.getElementById('messages').scrollHeight;
+  });
+
+  // بعد عرض المرفقات، هنا مستقبلاً نستدعي الذكاء الاصطناعي لتحليل الملف (backend)
+  // مثل:
+  // sendFileToAI(file);
+
+  fileInput.value = ''; // تفريغ الاختيار بعد الإرسال
+});
+
+    function aiReply(text){
+      const lower=text.toLowerCase();
+      const found=contractors.filter(c=>lower.includes(c.trade)||lower.includes(c.city.toLowerCase()));
+
+      if(found.length>0){
+        return {text:`وجدت ${found.length} مقاولين مناسبين لطلبك، تقدر تشوفهم أدناه 👇`,suggestions:found};
+      }
+      const faq=[
+        {q:/تراخيص|رخصة/,a:'تراخيص البناء تُستخرج من منصة بلدي، وتحتاج مخطط هندسي وشهادة سلامة إنشائية.'},
+        {q:/اسعار|تكلفة/,a:'الأسعار تختلف حسب نوع العمل والمساحة، يُفضّل طلب عرض سعر من أكثر من مقاول.'},
+        {q:/مقاول/,a:'لدينا مجموعة من المقاولين المميزين حسب مدينتك ونوع المشروع، فقط اكتب نوع الخدمة المطلوبة.'},
+        {q:/معمار|من انت/,a:'أنا مساعد معمار الذكي، أساعدك في كل ما يتعلق بالمقاولات والبناء.'}
+      ];
+      for(const f of faq){if(f.q.test(lower))return {text:f.a};}
+      return {text:'سؤال جميل! أحتاج توضيح أكثر حتى أقدر أساعدك بدقة 😊'};
+    }
+
+    function contact(id){
+      const c=contractors.find(x=>x.id===id);
+      if(!c)return;
+      appendMessage(`تفاصيل ${c.name}: يقع في ${c.city}، تقييم ${c.rating} ⭐ للتواصل: 05x-xxx-xxxx`,'bot');
+    }
+    async function sendMessage(){
+  const text = inputEl.value.trim();
+  if(!text) return;
+  appendMessage(text,'user');
+  inputEl.value='';
+
+  // مؤشر انتظار
+  const waiting = appendMessage('جاري التفكير...','bot');
+
+  try{
+    const res = await fetch('http://localhost:3000/api/chat', {
+      method:'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ message: text })
+    });
+    const j = await res.json();
+
+    // ازالة مؤشر الانتظار
+    if(waiting && waiting.parentNode) waiting.parentNode.removeChild(waiting);
+
+    appendMessage(j.reply || 'عذراً، لم يرد النظام.');
+
+    if(j.suggestions && j.suggestions.length) showSuggestions(j.suggestions);
+
+  } catch(err){
+    console.error(err);
+    if(waiting && waiting.parentNode) waiting.parentNode.removeChild(waiting);
+    appendMessage('عذراً، لم أتمكن من الاتصال بالخادم.','bot');
+  }
+}
+
+  </script>
+</body>
+</html>
