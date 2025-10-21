@@ -1,0 +1,134 @@
+.about-section {
+  background: linear-gradient(135deg, #eaf4f1 0%, #ffffff 100%); /* خلفية متدرجة الالوان*/
+  padding: 80px 0;
+  font-family:  sans-serif;
+  direction: rtl;
+}
+
+.about-container {
+  display: flex; /* للسلاسه*/
+  align-items: center;
+  justify-content: space-between; /* توزيع المساحه بشكل متساوي */
+  flex-wrap: wrap;  /* للجمال السماح للعناصر بالانتقال للسطر التالي قي الشاشات الصغيرة*/
+  width: 85%;
+  margin: auto;
+  gap: 40px; /* فراغ ثابت بين الصورة والنص */
+}
+
+/* النص */
+.about-text {
+  flex: 1;
+  min-width: 320px; /*لمنع تقلص الصندوق اكثر من كذا */
+}
+
+.about-title {
+  font-size: 36px;
+  color: #005f46; /*تمييز لاسم موقعنا */
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.about-title::after { 
+ content: ""; /*عشان يعطيني خط قصير تحت كلمة من نحن */
+    width: 60px;
+  height: 4px;
+  background-color: #005f46;
+  position: absolute;
+  bottom: -10px;
+  right: 0;
+  border-radius: 2px; /* يخلي الخط اللي تحت كلمة من نحن بحواف مقوسه*/
+}
+
+.about-description {
+  font-size: 18px;
+  color: #333;
+  line-height:1.9; /*تباعد الاسطر لتحسين القراءة*/
+  margin: 30px 0;/*مسافه فوق وتحت */
+}
+
+.website-name {
+  font-weight: bold;
+  color: #005f46;
+  /*ابراز معمار باللون وخط عريض */
+}
+
+/* المربعات الصغيرة للرؤية والرسالة */
+.about-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  /* ترتيب المربعات جنب بعض مع مسافه بينهم و ينزلون سطر عند الحاجة */
+}
+
+.detail-box {
+  background-color: #ffffff; /* باكقراوند ابيض للمربعات */
+  border: 1px solid #dfeeea; /* حدود فاتحه عشان ابرز الحواف حقت المربعات*/
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05); /* ظل */
+  padding: 25px; /* مساحه داخل المربع*/
+  border-radius: 12px; /* حواف مقوسه للمربع */
+  flex: 1; /* مرونة المربعات */
+  transition: all 0.3s ease;  /*انتقال ناعم عند تمرير الماوس */
+}
+
+.detail-box:hover {
+  transform: translateY(-5px); /* لما نمرر الماوس يرتفع المربع شوي (احساس تفاعلي )*/
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* احساس تفاعلي بعد يعطيني ظل حول المربع عند تمرير الماوس */
+}
+
+.detail-title {
+  color: #005f46;
+  font-size: 22px;
+  margin-bottom: 10px;
+  /* تنسيق لعناوين المربعات */
+}
+
+.detail-text {
+  color: #444;
+  font-size: 16px;
+  line-height: 1.8;
+  /*تنسيق لنص المربعات */
+}
+
+/* الصورة */
+.about-image {
+  flex: 1; /* للسلاسه*/
+  min-width: 320px; /* احدد اقل عرص ممكن عشان ما تصغر الصورة اكثر وتعدم التصميم*/
+  text-align: center; /* توسيط الصورة في المربع */
+}
+
+.about-image img {
+  width: 90%; /* احدد عرض الصوره ل %90 عشان يبقى فيه فراغ بسيط */
+ border-radius: 15px; /* حواف مقوسه */
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1); /* ظل عند تمرير الماوس*/
+  transition: transform 0.4s ease; /* حركة ناعمه اذا مررنا الماوس */
+}
+
+.about-image img:hover {
+  transform: scale(1.03);
+  /* اذا مررت الماوس تكبر الصورة شوي*/
+}
+
+/* استجابة للشاشات الصغيرة */
+@media (max-width: 900px) { /* اذا كان عرض الشاشه 900 بكسل او اقل يصير التالي */
+  .about-container { /* النص والصورة فوق بعض بدال صف افقي */
+    flex-direction: column-reverse; /* يخلي الصورة تحت والنص فوقها*/
+    text-align: center; /* النص بالوسط بدال اليمين */
+  }
+
+  .about-title::after {
+    right: 50%;
+    transform: translateX(50%);
+/* الخط تحت من نحن يصير بالوسط بدال اليمين*/
+  }
+
+  .about-details {
+    flex-direction: column;
+    /* نخلي مربعات رؤيتنا و رسالتنا تحت بعض بدال جنب بعض */
+  }
+
+  .about-image img {
+    width: 100%;
+/* اخلي الصورة تاخذ عرض حدودها بالكامل في الجوال */
+
+  }
+}
